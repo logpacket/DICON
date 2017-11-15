@@ -71,6 +71,13 @@ a {
     box-shadow: 0 8px white,0 -8px white;
     margin: -2px 0 0 -10px;
 }
+.menu-list {
+    height: 0;
+    overflow: hidden;
+}
+.menu-list.on {
+    height: 10px;
+}
 #bottom-bar {
     position: fixed;
     bottom: 0;
