@@ -15,7 +15,7 @@
         <div id="logo">
             <div class="container-out">
                 <div class="container-in">
-                    <a class="logo-text" href="index.html">
+                    <a class="logo-text" href="index.ejs">
                         SlimeJam
                     </a>
                 </div>
@@ -59,6 +59,35 @@
             <img id="arrow-top" class="img-small" src="../public/images/top-arrow.png"><img id="arrow-bottom" class="img-small" src="../public/images/bottom-arrow.png">
         </div>
         <div id="putter">
+            <div class="company-name">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">기업명</span><br/>
+                        <spas class="font-big"><%= corpname %></spas>
+                    </div>
+                </div>
+            </div>
+            <div class="company-link">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">홈페이지</span><br/>
+                        <spas class="font-big"><%= homepage %></spas>
+                    </div>
+                </div>
+            </div>
+            <div class="assets">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">자산</span><br/>
+                        <spas class="font-big"><%= finance %></spas>
+                    </div>
+                </div>
+            </div>
+            <div class="market">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">시장종류</span><br/>
+                        <spas class="font-big"><%= market %></spas>
             <div class="putter-top">
                 <div class="company-name">
                     <div class="container-out">
@@ -146,6 +175,8 @@
             </div>
         </div>
     </div>
-
+            </div>
+        </div>
+    </div>
 </body>
 </html>

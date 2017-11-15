@@ -6,9 +6,23 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
+var db = mongoose.connection;
+
+
+db.on('err',console.error);
+db.once('open',function(){
+    console.log('connected to mongodb');
+});
+mongoose.connect("mongodb://localhost:27017/QRdb",function(err){
+    if(err) {
+        console.log('DB Error');
+        throw err;
+    }else{
+        console.log('Connect sucess!');
+    }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +37,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
