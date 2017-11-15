@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var model = require('./corpmodel');
-var cheerio = require('cheerio-httpcli');
 
 
 router.get('/',function(req,res){
-    res.render('register');
+    res.render('registr');
 }).post('/',function(req,res){
     corp = new model({
         corpname:req.body.corpname,
@@ -28,7 +27,7 @@ router.get('/',function(req,res){
             throw err;
         }
         if(!result){
-            model.save(function(err){
+            corp.save(function(err){
                 if(err){
                     console.log("save failed"+err);
                     throw err;
@@ -45,3 +44,4 @@ router.get('/',function(req,res){
         }
     });
 });
+module.exports = router;
