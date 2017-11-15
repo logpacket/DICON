@@ -1,6 +1,16 @@
 onload = function () {
     
     var tagsList = document.querySelector("#tags");
+    var menu = document.querySelector('.menu');
+    var menuList = document.querySelector('.menu-list');
+
+    menu.addEventListener("click", function () {
+        if(!menuList.classList.contains("on")){
+          menuList.classList.add("on");
+        } else {
+          menuList.classList.remove("on");
+        }
+    });
     
     TagCanvas.Start('myCanvas','tags',{
         textColour: '#ff0000',
