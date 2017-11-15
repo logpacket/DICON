@@ -9,14 +9,14 @@
     <link rel="shortcut icon" type="image/x-icon" href="../public/images/favicon.ico" />
     <script src="http://www.goat1000.com/tagcanvas.min.js?2.9" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans+Condensed:300" rel="stylesheet" />
-    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="../public/stylesheets/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="header">   
         <div id="logo">
             <div class="container-out">
                 <div class="container-in">
-                    <a class="logo-text" href="index.html">
+                    <a class="logo-text" href="index.ejs">
                         SlimeJam
                     </a>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="container-out">
                     <div class="container-in">
                         <span class="font-small">기업명</span><br/>
-                        <spas class="font-big"><%=  %></spas>
+                        <spas class="font-big"><%= corpname %></spas>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 <div class="container-out">
                     <div class="container-in">
                         <span class="font-small">홈페이지</span><br/>
-                        <spas class="font-big"><%=  %></spas>
+                        <spas class="font-big"><%= homepage %></spas>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="container-out">
                     <div class="container-in">
                         <span class="font-small">자산</span><br/>
-                        <spas class="font-big"><%=  %></spas>
+                        <spas class="font-big"><%= finance %></spas>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 <div class="container-out">
                     <div class="container-in">
                         <span class="font-small">시장종류</span><br/>
-                        <spas class="font-big"><%=  %></spas>
+                        <spas class="font-big"><%= market %></spas>
                     </div>
                 </div>
             </div>
