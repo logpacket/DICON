@@ -1,11 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../public/javascripts/index.js"></script>
+    
+    <title>document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../public/images/favicon.ico" />
+    <script src="http://www.goat1000.com/tagcanvas.min.js?2.9" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans+Condensed:300" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="header">   
+        <div id="logo">
+            <div class="container-out">
+                <div class="container-in">
+                    <a class="logo-text" href="index.html">
+                        SlimeJam
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a class="menu">
+            <div class="menu-in">
+                <span></span>
+            </div>
+        </a>
+    </div>
+
+    <div class="menu-menu">
+
+    </div>
+
+    <div id="bg-padding">
+        <div id="myCanvasContainer">
+            <div class="auto">
+                <canvas id="myCanvas" width="700" height="700">
+                    <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                </canvas>
+            </div>
+        </div>
+        <div id="tags">
+            <ul>
+                <li><a href="#"><img class="small-img" src="http://cdnweb01.wikitree.co.kr/webdata/editor/201608/22/img_20160822122037_3ac07b09.jpg"></a></li>
+                <li><a href="#"><img class="small-img" src="https://i.ytimg.com/vi/3SP_Wes06Vo/maxresdefault.jpg"></a></li>
+                <li><a href="#"><img class="small-img" src="http://assets.change.org/photos/9/uo/dt/cduodtsPMXsSEOL-1600x900-noPad.jpg?1434019403"></a></li>
+                <li><a href="#"><img class="small-img" src="http://pds.joins.com/news/component/newsis/201704/20/NISI20170420_0012922092_web.jpg" /></a></li>
+                <li><a href="#"><img class="small-img" src="https://cdn.namuwikiusercontent.com/storage/85d9db462ea3ce6f02ed8986d51ef04e5db2129657230ed5c13fd223583e6fe68e263706dbb84b733e2b624059d37a336e20b701e436c0b8ad447723edff8e686a97a0978835b79fbe832d923f5d6656?e=1510628877&k=b9ElSn02eJZ0dDvjh8OeuQ" /></a></li>
+                <li><a href="#"><img class="small-img" src="http://image.hankookilbo.com/i.aspx?Guid=f9f56c1636e7458899c49d4fa1997d8f&Month=201610&size=640" /></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="bottom-bar">
+        <div id="up-button">
+            ^
+        </div>
+        <div id="putter">
+            <div class="company-name">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">기업명</span><br/>
+                        <spas class="font-big"><%=  %></spas>
+                    </div>
+                </div>
+            </div>
+            <div class="company-link">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">홈페이지</span><br/>
+                        <spas class="font-big"><%=  %></spas>
+                    </div>
+                </div>
+            </div>
+            <div class="assets">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">자산</span><br/>
+                        <spas class="font-big"><%=  %></spas>
+                    </div>
+                </div>
+            </div>
+            <div class="market">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">시장종류</span><br/>
+                        <spas class="font-big"><%=  %></spas>
+                    </div>
+                </div>
+            </div>
+            <div class="code">
+                <div class="container-out">
+                    <div class="container-in">
+                        <span class="font-small">종목코드</span><br/>
+                        <spas class="font-big"><%=  %></spas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
 </html>
