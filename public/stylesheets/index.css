@@ -20,6 +20,7 @@ body {
 }
 a {
     text-decoration: none;
+    color: #ffffff;
 }
 hr {
     border: #ffffff;
@@ -72,11 +73,11 @@ hr {
     margin: -2px 0 0 -10px;
 }
 .menu-list {
-    position: relative;
-    top: 56px;
-    left: 53px;
+    position: fixed;
+    top: 72px;
+    right: 0;
     float: right;
-    width: 300px;
+    width: 250px;
     height: 0;
     background: #0c0047;
     opacity: 0.7;
@@ -84,7 +85,7 @@ hr {
     transition: all 0.2s;
 }
 .menu-list.on {
-    height: 500px;
+    height: 600px;
 }
 #bottom-bar {
     position: fixed;
@@ -219,4 +220,28 @@ hr {
 }
 .arrow {
     width: 30px;
+}
+.menu-list-in {
+    margin: 3%;
+    color: #ffffff;
+}
+.font-big {
+    font-size: 1;
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+}
+.checkbox {
+    margin-bottom: 4%;
+}
+#registr {
+    margin: 35px;
+    font-size: 140%;
+    color: #ffffff;
+    text-align: center;
+    background: #030014;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
 }
