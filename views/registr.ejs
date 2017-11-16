@@ -3,56 +3,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="javascripts/index.js"></script>
+    <script src="../public/javascripts/index.js"></script>
     
     <title>document</title>
     <script src="http://www.goat1000.com/tagcanvas.min.js?2.9" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans+Condensed:300" rel="stylesheet" />
-    <link href="stylesheets/index.css" rel="stylesheet" type="text/css" />
+    <link href="../public/stylesheets/index.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <form action="/register" method="post" enctype="multipart/form-data">
-        기업명 : <input type="text" name="corpname"> <br>
-        사업자번호 : <input type="number"  minlength="3" maxlength="3" name="corpnum1">-<input type="number"  minlength="2" maxlength="2" name="corpnum2">-<input type="number"  minlength="5" maxlength="5" name="corpnum3"> <br>
-        사업장 종류 : 
-            <input type="radio" name="kindcorp" value="0"> 일반사업장
-            <input type="radio" name="kindcorp" value="1"> 주사업장
-            <input type="radio" name="kindcorp" value="2"> 종사업장 <br>
-        종사업장 코드 : <input type="number" name="slavecode"> <br>
-        <br>
-        <br>
+<body id="registr-bg">
+    <div id="paper">
+        <form action="/register" method="post" enctype="multipart/form-data">
+            기업 명 <br/> <input type="text" name="corpname" minlength="1"> <br><br>
+            사업자번호 <br/> <input type="number"  minlength="3" maxlength="3" name="corpnum1">-<input type="number"  minlength="2" maxlength="2" name="corpnum2">-<input type="number"  minlength="5" maxlength="5" name="corpnum3"> <br><br>
+            사업장 종류 : 
+                <input type="radio" name="kindcorp" value="0"> 일반사업장
+                <input type="radio" name="kindcorp" value="1"> 주사업장
+                <input type="radio" name="kindcorp" value="2"> 종사업장 <br>
+            종사업장 코드 <input type="number" name="slavecode"> <br>
+            <br>
+            <br>
 
-        홈페이지 : <input type="text" name="homepage"> <br>
-        <br>
+            홈페이지 <input type="text" name="homepage"> <br>
+            <br>
 
-        자본금 : \<input type="text" name="finance"> <br>
-        시장종류 : 
-            <input type="radio" name="market" value="0"> 코스피 
-            <input type="radio" name="market" value="1"> 코스닥 
-            <input type="radio" name="market" value="2"> 비상장 <br>
-        종목코드 : <input type="number" name="stockcode"> <br>
-        <br>
+            자본금 \<input type="text" name="finance"> <br>
+            시장종류 : 
+                <input type="radio" name="market" value="0"> 코스피 
+                <input type="radio" name="market" value="1"> 코스닥 
+                <input type="radio" name="market" value="2"> 비상장 <br>
+            종목코드 <input type="number" name="stockcode"> <br>
+            <br>
 
-        설립년도 : <input type="number" name="year" min="1800" max="2018"> <br>
-        직원수 : <input type="number" name="workers" min="1"> <br>
-        <br>
+            설립년도 <input type="number" name="year" min="1800" max="2018"> <br>
+            직원수 <input type="number" name="workers" min="1"> <br>
+            <br>
 
-        업종분류 : <select name="category" form="register">
-        <option value="1">첫번째리스트</option>
-        <option value="2">두번째리스트</option>
-        <option value="3">세번째리스트</option>
-        <option value="4">네번째리스트</option>
-        </select> <br>
-        소개 : <textarea name="introduce" rows="5" cols="40">250자 이내로 기업 소개를 간결하게 작성하세요.</textarea> <br>
-         <br>
+            업종분류 : <select name="category" form="register">
+            <option value="1">첫번째리스트</option>
+            <option value="2">두번째리스트</option>
+            <option value="3">세번째리스트</option>
+            <option value="4">네번째리스트</option>
+            </select> <br>
+            소개 : <textarea name="introduce" rows="5" cols="40">250자 이내로 기업 소개를 간결하게 작성하세요.</textarea> <br>
+            <br>
 
-         연락처 : <input type="number" name="phone"> <br>
-         이메일 : <input type="email" name="mailaddr"> <br>
-         로고 : <input type="file" name ="img"><br>
-        <br>
+            연락처 <input type="number" name="phone"> <br>
+            이메일 <input type="email" name="mailaddr"> <br>
+            로고 <input type="file" name ="img"><br>
+            <br>
 
-         <button type="submit">제출</button>
+            <button type="submit">제출</button>
 
-    </form>
+        </form>
+    </div>
 </body>
 </html>
