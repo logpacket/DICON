@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var model = require('./corpmodel');
 var multer = require('multer');
-var upload = multer({destination:'logo/'});
+var upload = multer({dest:'upload/'});
 
 router.get('/',function(req,res){
     res.render('registr');
@@ -44,5 +44,6 @@ router.get('/',function(req,res){
             });
         }
     });
+    console.log(req.file);
 });
 module.exports = router;

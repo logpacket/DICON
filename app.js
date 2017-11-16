@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var index = require('./routes/index');
 var register = require('./routes/register');
 var test = require('./routes/test');
+var multer = require('./routes/multer');
 
 var app = express();
 var db = mongoose.connection;
@@ -30,6 +31,7 @@ mongoose.connect("mongodb://localhost:27017/test",function(err){
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.engine('html',require('ejs').renderFile);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
