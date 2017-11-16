@@ -3,6 +3,7 @@ onload = function () {
     var tagsList = document.querySelector("#tags");
     var menu = document.querySelector('.menu');
     var menuList = document.querySelector('.menu-list');
+    var upButton = document.querySelector('.up-button');
 
     menu.addEventListener("click", function () {
         if(!menuList.classList.contains("on")){

@@ -36,8 +36,6 @@ hr {
 }
 #logo {
     float: left;
-    margin-left: 1%;
-    font-size: 150%;
 }
 #bg-padding {
     padding: 72px 0 92px;
@@ -75,11 +73,19 @@ hr {
     margin: -2px 0 0 -10px;
 }
 .menu-list {
+    position: relative;
+    top: 56px;
+    left: 53px;
+    float: right;
+    width: 300px;
     height: 0;
+    background: #00030e;
+    opacity: 0.7;
     overflow: hidden;
+    transition: all 0.2s;
 }
 .menu-list.on {
-    height: 10px;
+    height: 500px;
 }
 #bottom-bar {
     position: fixed;
@@ -169,3 +175,15 @@ hr {
     width: 30px;
     height: 30px;
 }
+#arrow-top {
+    
+}
+
+.logo {
+    position: relative;
+    top: -55px;
+    left: -20px;
+    margin: 0;
+    width: 250px;
+}
+
