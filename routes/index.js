@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
                 reason:'Do not find data'
             });
         }
-    })
+    });
 });
 
 

@@ -8,8 +8,6 @@ var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var register = require('./routes/register');
-var test = require('./routes/test');
-var multer = require('./routes/multer');
 
 var app = express();
 var db = mongoose.connection;
@@ -43,7 +41,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/register',register);
-app.use('/test',test);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

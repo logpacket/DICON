@@ -2,7 +2,17 @@ var express = require('express');
 var router = express.Router();
 var model = require('./corpmodel');
 var multer = require('multer');
-var upload = multer({dest:'upload/'});
+var filter = require('./filter');
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/') // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
+    },
+    filename: function (req, file, cb) {
+        cb(null, req.body.corpname + '.png') // cb 콜백함수를 통해 전송된 파일 이름 설정
+    }
+});
+var upload = multer({ storage: storage });
 
 router.get('/',function(req,res){
     res.render('registr');
@@ -20,7 +30,8 @@ router.get('/',function(req,res){
         cartegory:req.body.cartegory,
         introduce:req.body.introduce,
         phone:req.body.phone,
-        mailaddr:req.body.mailaddr
+        mailaddr:req.body.mailaddr,
+        logo:req.body.corpname+'.png'
     });
     model.findOne({corpnum:req.body.corpnum},function(err,result){
         if(err){
