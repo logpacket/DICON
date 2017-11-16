@@ -16,7 +16,7 @@ db.on('err',console.error);
 db.once('open',function(){
     console.log('connected to mongodb');
 });
-mongoose.connect("mongodb://localhost:27017/test",function(err){
+mongoose.connect("mongodb://localhost:27017/PXELEAD",function(err){
     if(err) {
         console.log('DB Error');
         throw err;

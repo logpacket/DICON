@@ -42,6 +42,7 @@ router.get('/',function(req,res){
         if(!result){
             corp.save(function(err){
                 if(err){
+                    fs.unlink('public/images/'+req.body.corpname+'.png');
                     console.log("save failed"+err);
                     throw err;
                 }else {
@@ -54,7 +55,7 @@ router.get('/',function(req,res){
                 success:false,
                 reason:'Already_used_number'
             });
-            syscall()
+            fs.unlink('public/images/'+req.body.corpname+'.png');
         }
     });
     console.log(req.file);
