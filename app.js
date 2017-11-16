@@ -4,8 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
+var register = require('./routes/register');
+var test = require('./routes/test');
 
 var app = express();
 var db = mongoose.connection;
@@ -15,7 +18,7 @@ db.on('err',console.error);
 db.once('open',function(){
     console.log('connected to mongodb');
 });
-mongoose.connect("mongodb://localhost:27017/QRdb",function(err){
+mongoose.connect("mongodb://localhost:27017/test",function(err){
     if(err) {
         console.log('DB Error');
         throw err;
@@ -37,6 +40,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/register',register);
+app.use('/test',test);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,7 +51,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
