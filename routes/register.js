@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var model = require('./corpmodel');
-
+var multer = require('multer');
+var upload = multer({destination:'logo/'});
 
 router.get('/',function(req,res){
     res.render('registr');
-}).post('/',function(req,res){
+}).post('/',upload.single('img'),function(req,res){
     corp = new model({
         corpname:req.body.corpname,
         corpnum:req.body.corpnum,
