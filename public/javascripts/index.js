@@ -1,4 +1,10 @@
 onload = function () {
+
+    // fetch("../data.json").then(function (response) {
+    //     return response.json();
+    // }).then(function (json) {
+
+    // });
     
     var tagsList = document.querySelector("#tags");
     var menu = document.querySelector('.menu');
