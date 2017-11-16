@@ -4,7 +4,17 @@ var model = require('./corpmodel');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+    model.find({}, function (err, corps) {
+        if (err) {
+            console.log('error'+err);
+            throw err;
+        }
+        if (corps) {
+            res.render('index', {corps: corps});
+        } else {
+            res.status(404).send('nothing to show');
+        }
+    });
 }).post('/ajax_response',function(req,res){
     corpname = req.body.corpname;
     model.findOne({corpname:corpname},function(err,result){
