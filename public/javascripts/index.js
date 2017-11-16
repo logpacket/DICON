@@ -4,7 +4,17 @@ onload = function () {
     var menu = document.querySelector('.menu');
     var menuList = document.querySelector('.menu-list');
     var topArrow = document.querySelector('#top-arrow');
+    var upButton = document.querySelector('#up-button');
+    var bottomBar = document.querySelector("#bottom-bar");
     
+
+    upButton.addEventListener("click", function () {
+        if(!bottomBar.classList.contains("on")){
+            bottomBar.classList.add("on");
+        } else {
+            bottomBar.classList.remove("on");
+        }
+    });
 
     menu.addEventListener("click", function () {
         if(!menuList.classList.contains("on")){
