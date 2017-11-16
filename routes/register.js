@@ -2,11 +2,12 @@ var express = require('express');
 var router = express.Router();
 var model = require('./corpmodel');
 var multer = require('multer');
+var fs = require('fs');
 var filter = require('./filter');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/') // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
+        cb(null, 'public/images/') // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
     },
     filename: function (req, file, cb) {
         cb(null, req.body.corpname + '.png') // cb 콜백함수를 통해 전송된 파일 이름 설정
@@ -53,6 +54,7 @@ router.get('/',function(req,res){
                 success:false,
                 reason:'Already_used_number'
             });
+            syscall()
         }
     });
     console.log(req.file);
