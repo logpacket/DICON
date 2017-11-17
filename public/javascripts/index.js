@@ -15,11 +15,11 @@ onload = function () {
     var mpob = document.querySelector(".mpob");
     var mpobCode = document.querySelector(".mpob-code");
 
-    mpob.addEventListener("click", function () {
-        if(!mpobCode.classList.contains("on")) {
-            mpobCode.classList.add("on");
+    mpob.addEventListener("change", function () {
+        if(mpob.checked) {
+            mpobCode.disabled = false;
         } else {
-            mpobCode.classList.remove("on");
+            mpobCode.disabled = true;
         }
     })
 
