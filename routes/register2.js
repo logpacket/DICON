@@ -61,7 +61,7 @@ router.get('/',function(req,res,next){
         finance:req.body.finance,// <-
         market:req.body.market,// <-
         strockcode:req.session.strockcode,
-        year:req.session.year,
+        year:req.session.year.substring(7,4),
         workers:req.body.workers,// <-
         cartegory:req.body.cartegory,// <-
         introduce:req.body.introduce,// <-

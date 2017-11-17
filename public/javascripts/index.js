@@ -43,7 +43,7 @@ onload = function () {
         zoom: 1,
         zoomMax: 2,
         zoomMin: 0.6,
-        zoomStep: 0.03,
+        zoomStep: 0.03
     });
     
     tagsList.style.display = "none";

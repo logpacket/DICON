@@ -21,7 +21,6 @@ router.get('/',function(req,res){
     corp = new model({
         corpname:req.body.corpname,
         corpnum:req.body.corpnum,
-        kindcorp:req.body.kindcorp,
         homepage:req.body.homepage,
         finance:req.body.finance,// <-
         market:req.body.market,// <-
@@ -31,9 +30,9 @@ router.get('/',function(req,res){
         cartegory:req.body.cartegory,// <-
         introduce:req.body.introduce,// <-
         phone:req.body.phone,
-        mailaddr:req.body.mailaddr,// <-
+        mailaddr:req.body.mailaddr// <-
     });
-    model.findOne({corpnum:req.body.corpnum},function(err,result){
+    model.findOne({strockcode:req.body.strockcode},function(err,result){
         if(err){
             console.log('error'+err);
             throw err;
@@ -46,7 +45,7 @@ router.get('/',function(req,res){
                     throw err;
                 }else {
                     console.log("save success");
-                    res.json({save:'success'});
+                    res.redirect('/');
                 }
             });
         }else {
@@ -54,6 +53,8 @@ router.get('/',function(req,res){
                 success:false,
                 reason:'Already_used_number'
             });
+            console.log(result);
+            console.log('save failed');
             fs.unlink('public/images/'+req.body.corpname+'.png');
         }
     });
