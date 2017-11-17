@@ -7,7 +7,7 @@ var corpSchema =  new schema({
     homepage:{type:String},
     finance:{type:Number},
     market:{type:String},
-    strockcode:{type:Number},
+    strockcode:{type:String},
     year:{type:Number},
     workers:{type:Number},
     cartegory:{type:Number},

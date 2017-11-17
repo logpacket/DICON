@@ -54,6 +54,7 @@ router.get('/',function(req,res,next){
 }).get('/submit',function(req,res,next){
     res.render('registr2-2');
 }).post('/submit',upload.single('img'),function(req,res,next){
+    year = parseInt(req.session.year.substring(0,4));
     corp = new model({
         corpname:req.body.corpname,
         corpnum:req.session.corpnum,
@@ -61,7 +62,7 @@ router.get('/',function(req,res,next){
         finance:req.body.finance,// <-
         market:req.body.market,// <-
         strockcode:req.session.strockcode,
-        year:req.session.year.substring(7,4),
+        year:year,
         workers:req.body.workers,// <-
         cartegory:req.body.cartegory,// <-
         introduce:req.body.introduce,// <-
