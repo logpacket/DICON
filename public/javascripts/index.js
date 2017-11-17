@@ -23,7 +23,7 @@ onload = function () {
         } else {
             code.disabled = false;
         }
-    })
+    });
 
     mpob.addEventListener("change", function () {
         if(mpob.checked) {
@@ -31,7 +31,7 @@ onload = function () {
         } else {
             mpobCode.disabled = true;
         }
-    })
+    });
 
     upButton.addEventListener("click", function () {
         if(!bottomBar.classList.contains("on")){
