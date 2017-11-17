@@ -26,7 +26,7 @@
             홈페이지 <br/> <input type="text" name="homepage"> <br>
             <br>
 
-            자본금 <br/> <input type="text" name="finance">\ <br><br/>
+            자본금 <br/> <input type="text" name="finance">₩ <br><br/>
             시장종류 : 
                 <input type="radio" name="market" value="kospi"> 코스피
                 <input type="radio" name="market" value="kosdaq"> 코스닥
@@ -44,7 +44,7 @@
             <option value="3">세번째리스트</option>
             <option value="4">네번째리스트</option>
             </select> <br>
-            소개 : <textarea name="introduce" rows="5" cols="40">250자 이내로 기업 소개를 간결하게 작성하세요.</textarea> <br>
+            소개 : <textarea name="introduce" rows="5" cols="40" placeholder="250자 이내로 기업 소개를 간결하게 작성하세요."></textarea> <br>
             <br>
 
             연락처 <br/> <input type="number" name="phone"> <br>
@@ -52,7 +52,7 @@
             로고 <br/> <input type="file" name ="img"><br>
             <br>
 
-            <button type="submit">제출</button>
+            <button id="submit-button" type="submit">제출</button>
 
         </form>
     </div>

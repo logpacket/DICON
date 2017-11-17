@@ -101,7 +101,7 @@
                         <div class="container-out">
                             <div class="container-in">
                                 <span class="font-small">자산</span><br/>
-                                <spas class="font-big"><%= corps[i].finance %></spas>
+                                <spas class="font-big"><%= corps[i].finance.toLocaleString("ko-KR", {style: "currency", currency: "KRW"}) %></spas>
                             </div>
                         </div>
                     </div>
