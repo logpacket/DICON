@@ -14,12 +14,22 @@ onload = function () {
     var bottomBar = document.querySelector("#bottom-bar");
     var mpob = document.querySelector(".mpob");
     var mpobCode = document.querySelector(".mpob-code");
+    var unfloated = document.querySelector(".unfloated");
+    var code = document.querySelector(".code");
 
-    mpob.addEventListener("click", function () {
-        if(!mpobCode.classList.contains("on")) {
-            mpobCode.classList.add("on");
+    unfloated.addEventListener("change", function () {
+        if(unfloated.checked) {
+            code.disabled = true;
         } else {
-            mpobCode.classList.remove("on");
+            code.disabled = false;
+        }
+    })
+
+    mpob.addEventListener("change", function () {
+        if(mpob.checked) {
+            mpobCode.disabled = false;
+        } else {
+            mpobCode.disabled = true;
         }
     })
 
