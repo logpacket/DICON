@@ -16,11 +16,9 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-router.get('/',function(req,res){
+router.get('/',function(req,res,next){
     res.render('registr2');
-}).get('/submit',function(req,res){
-    res.render('registr2-2');
-}).post('/dart_api',function(req,res){
+}).post('/',function(req,res,next){
     var option = {
         mode:'text',
         pythonPath:"C:\\Users\\packet\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe",
@@ -31,10 +29,12 @@ router.get('/',function(req,res){
         if(err)
             throw err;
         else {
-            if(results[0]!==""){
+            if(results[0]){
                 model.findOne({corpnum:results[0]},function(err,result){
-                    if(err)
+                    if(err){
+                        console.log(err);
                         throw err;
+                    }
                     else
                     if(!result){
                         req.session.corpnum = results[0];
@@ -44,13 +44,16 @@ router.get('/',function(req,res){
                         req.session.strockcode = results[4];
                         res.redirect('/register2/submit');
                     }else {
-                        res.send('Already registered');
+                        console.log('asdfas');
+                        res.redirect('/');
                     }
                 })
             }
         }
     });
-}).post('/',upload.single('img'),function(req,res){
+}).get('/submit',function(req,res,next){
+    res.render('registr2-2');
+}).post('/submit',upload.single('img'),function(req,res,next){
     corp = new model({
         corpname:req.body.corpname,
         corpnum:req.session.corpnum,
@@ -66,7 +69,7 @@ router.get('/',function(req,res){
         mailaddr:req.body.mailaddr,// <-
         logo:req.body.corpname+'.png'// <-
     });
-    model.findOne({corpnum:req.body.corpnum},function(err,result){
+    model.findOne({corpnum:req.session.corpnum},function(err,result){
         if(err){
             console.log('error'+err);
             throw err;
@@ -79,11 +82,10 @@ router.get('/',function(req,res){
                     throw err;
                 }else {
                     console.log("save success");
-                    res.json({save:'success'});
                 }
             });
         }else {
-            res.send('Already registered');
+            console.log('Already used');
             fs.unlink('public/images/'+req.body.corpname+'.png');
         }
     });
