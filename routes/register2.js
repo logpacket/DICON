@@ -3,8 +3,9 @@ var router = express.Router();
 var model = require('./corpmodel');
 var multer = require('multer');
 var fs = require('fs');
+var client = require('cheerio-httpcli');
 var filter = require('./filter');
-
+var py = require('python-shell');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/images/') // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
@@ -16,22 +17,54 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.get('/',function(req,res){
-    res.render('registr');
+    res.render('registr2');
+}).get('/submit',function(req,res){
+    res.render('registr2-2');
+}).post('/dart_api',function(req,res){
+    var option = {
+        mode:'text',
+        pythonPath:"C:\\Users\\packet\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe",
+        scriptPath:'./routes',
+        args:[req.body.strockcode]
+    };
+    py.run('/dart.py',option,function(err, results){
+        if(err)
+            throw err;
+        else {
+            if(results[0]!==""){
+                model.findOne({corpnum:results[0]},function(err,result){
+                    if(err)
+                        throw err;
+                    else
+                    if(!result){
+                        req.session.corpnum = results[0];
+                        req.session.homepage = results[1];
+                        req.session.phone = results[2];
+                        req.session.year = results[3];
+                        req.session.strockcode = results[4];
+                        res.redirect('/register2/submit');
+                    }else {
+                        res.send('Already registered');
+                    }
+                })
+            }
+        }
+    });
 }).post('/',upload.single('img'),function(req,res){
     corp = new model({
         corpname:req.body.corpname,
-        corpnum:req.body.corpnum,
-        kindcorp:req.body.kindcorp,
-        homepage:req.body.homepage,
+        corpnum:req.session.corpnum,
+        homepage:req.session.homepage,
         finance:req.body.finance,// <-
         market:req.body.market,// <-
-        strockcode:req.body.strockcode,
-        year:req.body.year,
+        strockcode:req.session.strockcode,
+        year:req.session.year,
         workers:req.body.workers,// <-
         cartegory:req.body.cartegory,// <-
         introduce:req.body.introduce,// <-
-        phone:req.body.phone,
+        phone:req.session.phone,
         mailaddr:req.body.mailaddr,// <-
+        logo:req.body.corpname+'.png'// <-
     });
     model.findOne({corpnum:req.body.corpnum},function(err,result){
         if(err){
@@ -50,13 +83,11 @@ router.get('/',function(req,res){
                 }
             });
         }else {
-            res.json({
-                success:false,
-                reason:'Already_used_number'
-            });
+            res.send('Already registered');
             fs.unlink('public/images/'+req.body.corpname+'.png');
         }
     });
     console.log(req.file);
+    res.redirect('/');
 });
 module.exports = router;
