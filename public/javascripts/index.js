@@ -12,9 +12,16 @@ onload = function () {
     var topArrow = document.querySelector('#top-arrow');
     var upButton = document.querySelector('#up-button');
     var bottomBar = document.querySelector("#bottom-bar");
-    var mpob = document.querySelector(".mpob");
-    var mpobCode = document.querySelector(".mpob-code");
+    var unlisted = document.querySelector(".unlisted");
     var code = document.querySelector(".code");
+
+    unlisted.addEventListener("click", function () {
+        if(!code.classList.contains("on")) {
+            code.classList.add("on");
+        } else {
+            code.classList.remove("on");
+        }
+    });
 
     upButton.addEventListener("click", function () {
         if(!bottomBar.classList.contains("on")){
