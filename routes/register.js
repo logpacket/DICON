@@ -10,7 +10,7 @@ var storage = multer.diskStorage({
         cb(null, 'public/images/') // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
     },
     filename: function (req, file, cb) {
-        cb(null, req.body.corpname + '.png') // cb 콜백함수를 통해 전송된 파일 이름 설정
+        cb(null, req.body.corpname+ '.png') // cb 콜백함수를 통해 전송된 파일 이름 설정
     }
 });
 var upload = multer({ storage: storage });
@@ -32,7 +32,7 @@ router.get('/',function(req,res){
         phone:req.body.phone,
         mailaddr:req.body.mailaddr// <-
     });
-    model.findOne({strockcode:req.body.strockcode},function(err,result){
+    model.findOne({corpnum:req.body.corpnum},function(err,result){
         if(err){
             console.log('error'+err);
             throw err;
