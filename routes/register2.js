@@ -21,7 +21,7 @@ router.get('/',function(req,res,next){
 }).post('/',function(req,res,next){
     var option = {
         mode:'text',
-        pythonPath:"C:\\Users\\packet\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe",
+        pythonPath:"/usr/bin/python3.5",
         scriptPath:'./routes',
         args:[req.body.strockcode]
     };

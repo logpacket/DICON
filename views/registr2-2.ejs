@@ -14,11 +14,8 @@
     <form action="/register2/submit" method="post"enctype="multipart/form-data">
         <div id="paper">
             기업 명 <br/> <input type="text" name="corpname" minlength="1"> <br><br>
-            자본금 <br/> <input type="text" name="finance">₩ <br><br/>
+            자본금 <br/> <input type="number" name="finance">₩ <br><br/>
 
-            시장종류 :
-            <input type="radio" name="market" value="kospi"> 코스피
-            <input type="radio" name="market" value="kosdaq"> 코스닥
             직원수 <br/> <input type="number" name="workers" min="1"> <br>
             <br>
             소개 :<br/><textarea name="introduce" rows="5" cols="40" placeholder="250자 이내로 기업 소개를 간결하게 작성하세요."></textarea> <br>
