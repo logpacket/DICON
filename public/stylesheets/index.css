@@ -25,6 +25,7 @@ a {
 hr {
     border: 1px solid #ffffff;
 }
+
 #header {
     position: fixed;
     width: 100%;
@@ -85,7 +86,7 @@ hr {
     transition: all 0.2s;
 }
 .menu-list.on {
-    height: 600px;
+    height: 500px;
 }
 #bottom-bar {
     position: fixed;
@@ -130,8 +131,8 @@ hr {
 }
 
 .small-img {
-    width: 80px;
-    height: 40px;
+    /* width: 80px;
+    height: 40px; */
 }
 
 .font-small {
@@ -300,4 +301,37 @@ hr {
 }
 #null {
     display: none;
+}
+
+.kospi-list {
+    float: left;
+    width: 1px;
+    height: 1px;
+}
+
+.kosdaq-list {
+    float: left;
+    width: 1px;
+    height: 1px;
+}
+
+.unlisted-list {
+    float: left;
+    width: 1px;
+    height: 1px;
+}
+
+.kospi-list.on {
+    width: 80px;
+    height: 40px;
+}
+
+.kosdaq-list.on {
+    width: 80px;
+    height: 40px;
+}
+
+.unlisted-list.on {
+    width: 80px;
+    height: 40px;
 }

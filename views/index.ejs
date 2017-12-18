@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/javascripts/index.js"></script>
-    
     <title>PIXELEAD</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <script src="http://www.goat1000.com/tagcanvas.min.js?2.9" type="text/javascript"></script>
+    <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/main.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans+Condensed:300" rel="stylesheet" />
     <link href="/stylesheets/index.css" rel="stylesheet" type="text/css" />
 </head>
@@ -27,22 +27,12 @@
         <div class="menu-list-in">
             <div class="font-big">기업 분류</div>
             <form action="/***** 경로 *****" method=" ***** POST or GET *****">
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="kospi"> 코스피<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="kosdaq"> 코스닥<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="unlisted"> 비상장<br/>
+                <input id="kospi" class="checkbox" type="checkbox" name="***** 네임 *****" value="kospi"> 코스피<br/>
+                <input id="kosdaq" class="checkbox" type="checkbox" name="***** 네임 *****" value="kosdaq"> 코스닥<br/>
+                <input id="unlisted" class="checkbox" type="checkbox" name="***** 네임 *****" value="unlisted"> 비상장<br/>
 		<br>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 농업, 임엄, 어업<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 제조업<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 전기, 가스, 수도, 폐기물처리<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 건설업<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 유통업(도, 소매 및 창고)<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 숙박 및 음식점<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 전문 과학, 정보통신업<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 공공(행정, 국방, 공익)<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 교육<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 보견 및 의료<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 스포츠, 여가, 방송통신<br/>
-                <input class="checkbox" type="checkbox" name="***** 네임 *****" value="****"> 사업시설 관리 및 임대 서비스업
+            다양한 종류의 기업들을 비교해보세요.<br>
+            새로운 기업을 등록하려면 아래에서 등록하실 수 있습니다.
             </form>
             <div id="registr">
                 <a href="/register">회사 등록하기</a>
@@ -64,14 +54,21 @@
         <div id="tags">
             <ul>
                 <% for (var i = 0; i < corps.length; i++) { %>
-                <li><a href="#corp-<%= i %>"><img class="small-img" src="/images/<%= corps[i].corpname%>.png"></a></li>
+                <li><a href="#corp-<%= i %>"><img class="small-img <% corps[i].market %>-list on" src="/images/<%= corps[i].corpname%>.png"></a></li>
                 <% } %>
-<!--
-                <li><a href="#"><img class="small-img" src="https://i.ytimg.com/vi/3SP_Wes06Vo/maxresdefault.jpg"></a></li>
-                <li><a href="#"><img class="small-img" src="http://assets.change.org/photos/9/uo/dt/cduodtsPMXsSEOL-1600x900-noPad.jpg?1434019403"></a></li>
-                <li><a href="#"><img class="small-img" src="http://pds.joins.com/news/component/newsis/201704/20/NISI20170420_0012922092_web.jpg" /></a></li>
-                <li><a href="#"><img class="small-img" src="https://cdn.namuwikiusercontent.com/storage/85d9db462ea3ce6f02ed8986d51ef04e5db2129657230ed5c13fd223583e6fe68e263706dbb84b733e2b624059d37a336e20b701e436c0b8ad447723edff8e686a97a0978835b79fbe832d923f5d6656?e=1510628877&k=b9ElSn02eJZ0dDvjh8OeuQ" /></a></li>
+<!-- 
+                <li><a href="#"><img class="small-img kospi-list on" src="https://i.ytimg.com/vi/3SP_Wes06Vo/maxresdefault.jpg"></a></li>
+                <li><a href="#"><img class="small-img kosdaq-list on" src="http://assets.change.org/photos/9/uo/dt/cduodtsPMXsSEOL-1600x900-noPad.jpg?1434019403"></a></li>
+                <li><a href="#"><img class="small-img unlisted-list on" src="http://pds.joins.com/news/component/newsis/201704/20/NISI20170420_0012922092_web.jpg" /></a></li>
+                <li><a href="#"><img class="small-img kospi-list on" src="https://i.ytimg.com/vi/3SP_Wes06Vo/maxresdefault.jpg"></a></li>
+                <li><a href="#"><img class="small-img kosdaq-list on" src="http://assets.change.org/photos/9/uo/dt/cduodtsPMXsSEOL-1600x900-noPad.jpg?1434019403"></a></li>
+                <li><a href="#"><img class="small-img unlisted-list on" src="http://pds.joins.com/news/component/newsis/201704/20/NISI20170420_0012922092_web.jpg" /></a></li>
+                <li><a href="#"><img class="small-img kospi-list on" src="https://i.ytimg.com/vi/3SP_Wes06Vo/maxresdefault.jpg"></a></li>
+                <li><a href="#"><img class="small-img kosdaq-list on" src="http://assets.change.org/photos/9/uo/dt/cduodtsPMXsSEOL-1600x900-noPad.jpg?1434019403"></a></li>
+                <li><a href="#"><img class="small-img unlisted-list on" src="http://pds.joins.com/news/component/newsis/201704/20/NISI20170420_0012922092_web.jpg" /></a></li>
 -->
+
+
             </ul>
         </div>
     </div>

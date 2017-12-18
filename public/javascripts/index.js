@@ -41,7 +41,7 @@ onload = function () {
     
     TagCanvas.Start('myCanvas','tags',{
         textColour: '#ff0000',
-        outlineColour: '#000000',
+        outlineColour: '#FF7700',
         reverse: true,
         depth: 0.8,
         clickToFront: 1000,
@@ -50,8 +50,14 @@ onload = function () {
         zoom: 1,
         zoomMax: 2,
         zoomMin: 0.6,
-        zoomStep: 0.03
+        zoomStep: 0.03,
+        stretchX: 1,
+        stretchY: 1,
+        imageScale: 1,  // 이미지 크기
     });
     
     tagsList.style.display = "none";
+
+
+
 };
